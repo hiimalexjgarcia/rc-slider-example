@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Slider from 'rc-slider';
+import { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
 import './Timeline.css';
@@ -17,7 +17,7 @@ function Timeline(props) {
 
   return (
     <div className="Timeline">
-      <Slider.Range
+      <Range
         allowCross={false}
         marks={marks}
         step={null}
