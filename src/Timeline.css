@@ -1,0 +1,4 @@
+.rc-slider-mark-text {
+    white-space: nowrap;
+    transform: translateX(-15%) translateY(250%) rotate(45deg) !important;
+}
