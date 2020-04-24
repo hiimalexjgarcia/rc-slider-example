@@ -1,9 +1,7 @@
 import React from 'react';
-
-import { Range } from 'rc-slider';
-import 'rc-slider/assets/index.css';
-
 import './Timeline.css';
+import Range from 'rc-slider/lib/Range';
+import 'rc-slider/assets/index.css';
 
 function Timeline(props) {
   const dates = props.dates || []
@@ -18,13 +16,13 @@ function Timeline(props) {
   return (
     <div className="Timeline">
       <Range
-        allowCross={false}
+        allowCross={true}
         marks={marks}
         step={null}
         min={marksMin}
         max={marksMax}
         defaultValue={[marksMax,marksMax]}
-        onChange={console.log}
+        onAfterChange={console.log}
       />
     </div>
   );
