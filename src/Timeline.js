@@ -7,32 +7,51 @@ import 'rc-slider/assets/index.css';
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
 
-const style = { width: 400, margin: 50 };
-
 function Timeline(props) {
-  const dates = props.dates || []
+    const dates = props.dates || []
 
     let marks = {};
     dates.forEach(function(d){
         marks[(new Date(d)).getTime()] = d;
     })
+
     const marksMin = Math.min(...Object.keys(marks));
     const marksMax = Math.max(...Object.keys(marks));
+    const width = (new Date().getTime() - marksMin)/300 || 0;
 
-    return (
-        <div style={style} className="timeline">
-            <Range
-                allowCross={false}
-                marks={marks}
-                step={null}
-                min={marksMin}
-                max={marksMax}
-                defaultValue={[marksMax,marksMax]}
-                pushable={true}
-                onChange={console.log}
-      />
-    </div>
-  );
-}
+    const style = { maxWidth: 400, margin: 35 };
 
-export default Timeline;
+    const displayType = props.displayType;
+
+    if (displayType === 'select') {
+        return (
+            <div style={style} className="timeline">
+                <Slider
+                    allowCross={false}
+                    marks={marks}
+                    step={null}
+                    min={marksMin}
+                    max={marksMax}
+                    defaultValue={[marksMax,marksMax]}
+                    pushable={true}
+                />
+            </div>
+        );
+    } else if (displayType === 'filter') {
+        return (
+            <div style={style} className="timeline">
+                <Range
+                    allowCross={false}
+                    marks={marks}
+                    step={null}
+                    min={marksMin}
+                    max={marksMax}
+                    defaultValue={[marksMax,marksMax]}
+                    pushable={true}
+                />
+            </div>
+        );
+    };
+};
+
+    export default Timeline;
