@@ -6,7 +6,6 @@ import 'rc-slider/assets/index.css';
 
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
-const Handle = Slider.Handle;
 
 const style = { width: 400, margin: 50 };
 

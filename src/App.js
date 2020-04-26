@@ -4,8 +4,6 @@ import Timeline from './Timeline.js';
 
 import Button from 'react-bootstrap/Button';
 
-import styled from 'styled-components';
-
 const style = {margin: 10}
 function App() {
     const [dates, setDates] = useState([]);
