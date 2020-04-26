@@ -1,10 +1,7 @@
 import React from 'react';
 import Slider from 'rc-slider';
-import Tooltip from 'rc-tooltip';
 import 'rc-slider/assets/index.css';
-import 'rc-tooltip/assets/bootstrap.css';
 import './Timeline.css';
-import Range from 'rc-slider/lib/Range';
 import 'rc-slider/assets/index.css';
 
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
@@ -12,21 +9,6 @@ const Range = createSliderWithTooltip(Slider.Range);
 const Handle = Slider.Handle;
 
 const style = { width: 400, margin: 50 };
-
-const handle = (props) => {
-  const { value, dragging, index, ...restProps } = props;
-  return (
-    <Tooltip
-      prefixCls="rc-slider-tooltip"
-      overlay={value}
-      visible={dragging}
-      placement="bottom"
-      key={index}
-    >
-      <Handle value={value} {...restProps} />
-    </Tooltip>
-  );
-};
 
 function Timeline(props) {
   const dates = props.dates || []
@@ -47,7 +29,7 @@ function Timeline(props) {
                 min={marksMin}
                 max={marksMax}
                 defaultValue={[marksMax,marksMax]}
-                pushable={true} //now 
+                pushable={true}
                 onChange={console.log}
       />
     </div>
