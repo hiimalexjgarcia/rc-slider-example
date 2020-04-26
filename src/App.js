@@ -1,31 +1,29 @@
-import React from 'react';
-
-import './App.css';
+import React, {useState} from 'react';
 
 import Timeline from './Timeline.js';
 
-function App() {
-  const dates = [
-    '2020-04-23T03:04:30.644Z',
-    '2020-04-23T03:14:30.644Z',
-    '2020-04-23T03:28:30.644Z',
-    '2020-04-23T03:44:30.644Z',
-    '2020-04-23T04:24:30.644Z',
-    '2020-04-23T04:28:30.644Z',
-    '2020-04-23T04:31:30.644Z',
-    '2020-04-23T04:37:36.635Z',
-    '2020-04-23T04:50:22.135Z',
-    '2020-04-23T05:13:22.135Z',
-    '2020-04-23T05:45:22.135Z',
-  ]
+import Button from 'react-bootstrap/Button';
 
-  return (
-    <div className="App">
-      <Timeline
-        dates={dates}
-      />
-    </div>
-  );
+import styled from 'styled-components';
+
+const style = {margin: 10}
+function App() {
+    const [dates, setDates] = useState([]);
+
+    const handleClick = () => {
+        setDates(dates.concat(new Date().toLocaleString()))
+    }
+    //gotta add different handlers for different color semscreens (this would mock up how semscreens owned by different colored hats would show up)
+    return (
+        <>
+            <Button id="button" style={style} onClick={handleClick}>Add red semscreen</Button>
+            <Button id="button" style={style} onClick={handleClick}>Add green semscreen</Button>
+            <Button id="button" style={style} onClick={handleClick}>Add blue semscreen</Button>
+            <Timeline
+                dates={dates}
+            />
+        </>
+    );
 }
 
 export default App;
