@@ -28,13 +28,12 @@ function Timeline(props) {
     />
   :
     <Range
-      allowCross={false}
+      allowCross={true}
       marks={marks}
       step={null}
       min={marksMin}
       max={marksMax}
       defaultValue={[marksMax,marksMax]}
-      pushable={true}
       onAfterChange={console.log}
     />
 
